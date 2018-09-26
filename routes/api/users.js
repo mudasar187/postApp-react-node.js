@@ -20,7 +20,7 @@ const User = require('../../models/User');
 router.get('/test', (req, res) => res.json({msg: "User works"}));
 
 
-// @route GET api/users/register
+// @route POST api/users/register
 // @dec Register user
 // @access Public
 router.post('/register', (req,res) => {
@@ -58,7 +58,7 @@ router.post('/register', (req,res) => {
                         newUser.password = hash;
                         newUser.save()
                                 .then(user => res.json(user))
-                                .catch(err => console.log(err));
+                                .catch(err => console.log(err.response.data));
                     })
                 })
             }
