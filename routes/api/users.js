@@ -61,13 +61,13 @@ router.post("/register", (req, res) => {
   });
 });
 
-// @route GET api/users/login
-// @dec Login user - Return JWT token
-// @access Public
+// @route   GET api/users/login
+// @desc    Login User / Returning JWT Token
+// @access  Public
 router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
-  // Check validation
+  // Check Validation
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -75,7 +75,7 @@ router.post("/login", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  // Find user my email
+  // Find user by email
   User.findOne({ email }).then(user => {
     // Check for user
     if (!user) {
@@ -83,17 +83,11 @@ router.post("/login", (req, res) => {
       return res.status(404).json(errors);
     }
 
-    // Check password
+    // Check Password
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        // User match
-
-        const payload = {
-          // Create JWT payload
-          id: user.id,
-          name: user.name,
-          avatar: user.avatar
-        };
+        // User Matched
+        const payload = { id: user.id, name: user.name, avatar: user.avatar }; // Create JWT Payload
 
         // Sign Token
         jwt.sign(
@@ -115,9 +109,9 @@ router.post("/login", (req, res) => {
   });
 });
 
-// @route GET api/users/current
-// @dec Return current user
-// @access Private
+// @route   GET api/users/current
+// @desc    Return current user
+// @access  Private
 router.get(
   "/current",
   passport.authenticate("jwt", { session: false }),
