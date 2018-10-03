@@ -55,7 +55,6 @@ class Register extends Component {
                 <TextFieldGroup
                   placeholder="Name"
                   name="name"
-                  type="text"
                   value={this.state.name}
                   onChange={this.onChange}
                   error={errors.name}
