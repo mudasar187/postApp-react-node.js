@@ -2,16 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const cors = require("cors");
 
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const posts = require("./routes/api/posts");
 
 const app = express();
-
-// Enable CORS
-app.use(cors());
 
 // Body parser middelware
 app.use(bodyParser.urlencoded({ extended: false }));

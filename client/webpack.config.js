@@ -31,6 +31,12 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, "public/"),
+    proxy: {
+      "/api/*":{
+          target:"http://localhost:3000/",
+          secure:"true"
+      },
+    },
     port: 4000,
     publicPath: "http://localhost:4000/dist/",
     hotOnly: true,
