@@ -27,6 +27,32 @@ export const getCurrentProfile = () => dispatch => {
     );
 };
 
+// Create Profile
+export const createProfile = (profileData, history) => dispatch => {
+  axios
+    .post("/api/profile", profileData)
+    .then(res => history.push("/dashboard"))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+// Add experience
+export const addExperience = (expData, history) => dispatch => {
+  axios
+    .post('/api/profile/experience', expData)
+    .then(res => history.push('/dashboard'))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 // Delete account & profile
 export const deleteAccount = () => dispatch => {
   if (window.confirm("Are your sure? This can NOT be undone")) {
@@ -45,19 +71,6 @@ export const deleteAccount = () => dispatch => {
         })
       );
   }
-};
-
-// Create Profile
-export const createProfile = (profileData, history) => dispatch => {
-  axios
-    .post("/api/profile", profileData)
-    .then(res => history.push("/dashboard"))
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
 };
 
 // Profile loading
