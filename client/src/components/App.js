@@ -21,7 +21,8 @@ import EditProfile from './edit-profile/EditProfile';
 import AddExperience from './add-credentials/AddExperience';
 import AddEducation from './add-credentials/AddEducation';
 import Profiles from './profiles/Profiles';
-import Profile from './profile/Profile';;
+import Profile from './profile/Profile';
+import NotFound from './not-found/NotFound';
 
 import "./../styles/App.css";
 
@@ -63,6 +64,7 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />
+              <Route exact path="/not-found" component={NotFound} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/create-profile" component={CreateProfile} />
               <PrivateRoute exact path="/edit-profile" component={EditProfile} />
