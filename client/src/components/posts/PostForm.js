@@ -16,7 +16,7 @@ class PostForm extends Component {
     }
   }
 
-  onSubmit= (e) => {
+  onSubmit = e => {
     e.preventDefault();
 
     const { user } = this.props.auth;
@@ -28,10 +28,10 @@ class PostForm extends Component {
     };
 
     this.props.addPost(newPost);
-    this.setState({ text: "", errors: {} });
+    this.setState({ text: "" });
   };
 
-  onChange = (e) => {
+  onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 

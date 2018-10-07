@@ -83,9 +83,9 @@ router.delete(
   }
 );
 
-// @route POST api/posts/like/:id
-// @dec Like post
-// @access Private
+// @route   POST api/posts/like/:id
+// @desc    Like post
+// @access  Private
 router.post(
   "/like/:id",
   passport.authenticate("jwt", { session: false }),
@@ -99,22 +99,22 @@ router.post(
           ) {
             return res
               .status(400)
-              .json({ alreadyLiked: "User already liked this post" });
+              .json({ alreadyliked: "User already liked this post" });
           }
 
-          // Add user id to likes
+          // Add user id to likes array
           post.likes.unshift({ user: req.user.id });
 
           post.save().then(post => res.json(post));
         })
-        .catch(err => res.status(404).json({ postNotFound: "No post found" }));
+        .catch(err => res.status(404).json({ postnotfound: "No post found" }));
     });
   }
 );
 
-// @route POST api/posts/unlike/:id
-// @dec Unlike post
-// @access Private
+// @route   POST api/posts/unlike/:id
+// @desc    Unlike post
+// @access  Private
 router.post(
   "/unlike/:id",
   passport.authenticate("jwt", { session: false }),
@@ -128,7 +128,7 @@ router.post(
           ) {
             return res
               .status(400)
-              .json({ alreadyLiked: "You have not yet liked this post" });
+              .json({ notliked: "You have not yet liked this post" });
           }
 
           // Get remove index
@@ -136,13 +136,13 @@ router.post(
             .map(item => item.user.toString())
             .indexOf(req.user.id);
 
-          // Splice out array
+          // Splice out of array
           post.likes.splice(removeIndex, 1);
 
           // Save
           post.save().then(post => res.json(post));
         })
-        .catch(err => res.status(404).json({ postNotFound: "No post found" }));
+        .catch(err => res.status(404).json({ postnotfound: "No post found" }));
     });
   }
 );
