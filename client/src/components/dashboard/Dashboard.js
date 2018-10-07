@@ -5,17 +5,15 @@ import { connect } from "react-redux";
 import { getCurrentProfile, deleteAccount } from "../../actions/profileActions";
 import Spinner from "../common/Spinner";
 import ProfileActions from "./ProfileActions";
-import Experience from './Experience';
-import Education from './Education';
+import Experience from "./Experience";
+import Education from "./Education";
 
 class Dashboard extends Component {
   componentDidMount() {
     this.props.getCurrentProfile();
   }
 
-  onDeleteClick = e => {
-    this.props.deleteAccount();
-  };
+  onDeleteClick = e => this.props.deleteAccount();
 
   render() {
     const { user } = this.props.auth;

@@ -3,16 +3,13 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 class ProfileGithub extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      clientId: "XXX",
-      clientSecret: "XXX",
-      count: 5,
-      sort: "created: asc",
-      repos: []
-    };
-  }
+  state = {
+    clientId: "XXX",
+    clientSecret: "XXX",
+    count: 5,
+    sort: "created: asc",
+    repos: []
+  };
 
   componentDidMount() {
     const { username } = this.props;
@@ -38,7 +35,11 @@ class ProfileGithub extends Component {
         <div className="row">
           <div className="col-md-6">
             <h4>
-            <Link to={`//${repo.html_url}`} className="text-info" target="_blank">
+              <Link
+                to={`//${repo.html_url}`}
+                className="text-info"
+                target="_blank"
+              >
                 {repo.name}
               </Link>
             </h4>
