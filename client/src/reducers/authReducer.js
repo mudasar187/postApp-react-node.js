@@ -1,7 +1,6 @@
 import isEmpty from '../validation/is-empty';
 
 import { SET_CURRENT_USER } from '../actions/types';
-import { log } from 'util';
 
 const initialState = {
   isAuthenticated: false,
