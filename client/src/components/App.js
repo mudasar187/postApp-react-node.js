@@ -7,7 +7,7 @@ import { clearCurrentProfile } from "../actions/profileActions";
 
 import { Provider } from "react-redux";
 import store from "./store";
-import '../img/developer.jpeg';
+import '../images/developer.jpeg';
 
 import PrivateRoute from "../components/common/PrivateRoute";
 
