@@ -9,7 +9,7 @@ const Post = require("../../models/post");
 const Profile = require("../../models/Profile");
 
 // Load validation
-const validationPostInput = require("../../validation/post");
+const validatePostInput = require("../../validation/post");
 
 // @route GET api/posts
 // @dec Get posts
@@ -39,7 +39,7 @@ router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = validationPostInput(req.body);
+    const { errors, isValid } = validatePostInput(req.body);
 
     // Check validation
     if (!isValid) {
