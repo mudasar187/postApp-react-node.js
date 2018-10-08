@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Spinner from "../common/Spinner";
 import ProfileItems from "./ProfileItem";
 import { getProfiles } from "../../actions/profileActions";
+import { Link } from "react-router-dom";
 
 class Profiles extends Component {
   componentDidMount() {
@@ -23,7 +24,12 @@ class Profiles extends Component {
           <ProfileItems key={profile._id} profile={profile} />
         ));
       } else {
-        profileItems = <h4>No profiles found</h4>;
+        profileItems = (
+          <div className="col-md-12 text-center">
+            <hr />
+            <h2>No profiles found</h2>
+          </div>
+        );
       }
     }
 
