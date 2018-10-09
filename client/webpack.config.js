@@ -11,8 +11,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
-        options: { presets: ["env"], plugins: ["transform-class-properties"] }
+        loader: "babel-loader"
       },
       {
         test: /\.s?css$/,
