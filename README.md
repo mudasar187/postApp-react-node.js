@@ -1,29 +1,34 @@
-How to run project:
+# React WebApp - DevCommunity
 
-Type this from root folder:
+DevCommunity is a React Webapp with Node, Express and MongoDB.
 
-- npm run client-install
-- npm install
-- npm run dev
+MongoDB is used from [mLab](https://mlab.com/)
 
 
+## Run
 
-Frontend is running on port: 4000
-Backend is running on port: 3000
+You'll need:
 
+- [Node.js](https://nodejs.org/en/)
+- [NPM](https://www.npmjs.com/)
 
-If u change backend port to another port please gp into webpack.config.js, find this code:
+#### Clone repo and go to root project
 
-proxy: {
-      "/api/*": {
-        target: "http://localhost:3000/",
-        secure: "true"
-      }
-    },
+Create an account on [mLab](https://mlab.com/) and copy the URI you get
+Replace 'XXX' with MONGO URI you get from [mLab](https://mlab.com/) and save.
 
+Do:
 
-    Change 3000 to the port you prefer the backend to run on.
+- npm run client-install (Install dependencies for frontend)
+- npm install (Install dependencies for backend)
+- npm run dev (To open development mode)
 
+For production navigate into /client
 
-Heroku link:
-[https://secret-plains-22057.herokuapp.com/](https://secret-plains-22057.herokuapp.com/)
+- npm run build
+
+You will get a bundle.js file.
+
+Also deployed to [Heroku](https://www.heroku.com/)
+
+App link: [DevCommunity]([https://secret-plains-22057.herokuapp.com/](https://secret-plains-22057.herokuapp.com/))
